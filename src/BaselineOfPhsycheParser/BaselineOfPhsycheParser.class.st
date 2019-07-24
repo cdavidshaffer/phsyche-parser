@@ -19,5 +19,5 @@ BaselineOfPhsycheParser >> petitParser: spec [
 
 	spec 
 		baseline: 'PetitParser'
-		with: [ spec repository: 'https://github.com/moosetechnology/PetitParser' ]
+		with: [ spec repository: 'github://moosetechnology/PetitParser/src' ]
 ]
