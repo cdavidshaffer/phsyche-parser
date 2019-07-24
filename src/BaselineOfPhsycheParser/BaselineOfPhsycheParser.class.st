@@ -9,8 +9,8 @@ BaselineOfPhsycheParser >> baseline: spec [
 	<baseline>
 	
 	spec for: #common do: [ 
-		spec package: 'Phsyche-Parser' with:
-			[ spec requires:  ''] 
+		self petitParser: spec.
+		spec package: 'Phsyche-Parser'.
   ]
 ]
 
