@@ -12,7 +12,6 @@ Class {
 		'list',
 		'expression',
 		'symbol',
-		'whitespace',
 		'symbolChar'
 	],
 	#category : #'Phsyche-Parser'
@@ -78,11 +77,5 @@ PParser >> symbol [
 PParser >> symbolChar [
 
 	^$( asParser negate and , $) asParser negate and
-			, whitespace negate
-]
-
-{ #category : #accessing }
-PParser >> whitespace [
-
-	^#blank asParser / #newline asParser
+			, #space asParser negate
 ]
