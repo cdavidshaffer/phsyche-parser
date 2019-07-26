@@ -60,7 +60,7 @@ PParser >> positiveNumber [
 PParser >> start [
 	"Answer the production to start this parser with."
 	
-	^self expression trim
+	^expression trim
 ]
 
 { #category : #accessing }
