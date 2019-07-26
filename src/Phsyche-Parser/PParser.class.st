@@ -5,8 +5,6 @@ Class {
 	#name : #PParser,
 	#superclass : #PPCompositeParser,
 	#instVars : [
-		'positiveNumber',
-		'negativeNumber',
 		'number',
 		'boolean',
 		'list',
@@ -37,21 +35,9 @@ PParser >> list [
 ]
 
 { #category : #accessing }
-PParser >> negativeNumber [ 
-
-	^($- asParser , positiveNumber) flatten trim ==> [ :str | str asNumber ]
-]
-
-{ #category : #accessing }
 PParser >> number [ 
 
-	^positiveNumber / negativeNumber 
-]
-
-{ #category : #accessing }
-PParser >> positiveNumber [ 
-
-	^(#digit asParser plus, $. asParser optional, #digit asParser star)
+	^($- asParser optional, #digit asParser plus, $. asParser optional, #digit asParser star)
 			 flatten trim ==> [ :str | str asNumber ]
 ]
 
