@@ -10,7 +10,8 @@ Class {
 		'list',
 		'expression',
 		'symbol',
-		'symbolChar'
+		'symbolChar',
+		'string'
 	],
 	#category : #'Phsyche-Parser'
 }
@@ -24,7 +25,7 @@ PParser >> boolean [
 { #category : #accessing }
 PParser >> expression [ 
 
-	^number / boolean / symbol / list 
+	^number / boolean / symbol / string / list 
 ]
 
 { #category : #accessing }
@@ -49,6 +50,12 @@ PParser >> start [
 ]
 
 { #category : #accessing }
+PParser >> string [
+	^ ($" asParser , $" asParser negate star , $" asParser) flatten trim 
+		==> [ :str | str allButFirst allButLast ]
+]
+
+{ #category : #accessing }
 PParser >> symbol [
 	^ ($# asParser optional , 
 			(#digit asParser negate and , symbolChar) ,
@@ -63,5 +70,5 @@ PParser >> symbol [
 PParser >> symbolChar [
 
 	^$( asParser negate and , $) asParser negate and
-			, #space asParser negate
+			, #space asParser negate and , $" asParser negate
 ]

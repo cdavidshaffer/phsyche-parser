@@ -73,6 +73,16 @@ PParserTest >> testParseListWithSymbols [
 ]
 
 { #category : #tests }
+PParserTest >> testParseString [
+
+	self assert: (parser parse: '"abc"') equals: 'abc'.
+	self assert: (parser parse: '"hello, world"') equals: 'hello, world'
+
+
+
+]
+
+{ #category : #tests }
 PParserTest >> testParseSymbol [
 
 	self assert: (parser parse: 'x') equals: #x.
